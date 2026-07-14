@@ -7,7 +7,7 @@ import { chromium } from "playwright";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
-const output = path.resolve(root, "assets/manifest-preview.png");
+const output = path.resolve(root, "assets/manifest-harness.png");
 await mkdir(path.dirname(output), { recursive: true });
 const port = 4173;
 const preview = spawn(process.execPath, [path.join(root, "src/preview-server.mjs")], {

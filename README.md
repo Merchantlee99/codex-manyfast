@@ -24,16 +24,15 @@ This is a `0.1.0` developer preview. It does **not** claim to finish product pla
 
 [![Codex Manyfast Planning Manifest](./plugins/codex-manyfast/assets/manifest-preview.png)](./plugins/codex-manyfast/assets/manifest-preview.png)
 
-The screenshot is captured from the repository's local host harness using the same widget renderer and the same MCP `structuredContent` contract as the plugin. It is not a mocked design or a screenshot of the production Codex host.
+This is an actual Codex desktop conversation captured after installing plugin build `0.1.0+codex.20260714074541`. Codex called the bundled STDIO MCP tools, created immutable snapshot `manifest-r4-dede70506f36`, and rendered that snapshot inline through `planning_render_manifest`. The image was cropped only to remove unrelated tasks and desktop content.
 
-The rendered fixture contains:
+The captured run contains:
 
-- two user-accepted decisions;
-- two open questions, including one implementation blocker;
-- one source-backed external observation;
-- one unconfirmed agent inference;
-- one implementation-time planning change; and
-- an immutable revision and content hash.
+- a user-confirmed objective at revision 2;
+- one verbatim user-statement observation;
+- one open implementation blocker;
+- readiness `not_ready`, without guessing an answer; and
+- immutable revision 4, snapshot ID, and content hash.
 
 ## Why I built it
 
@@ -127,7 +126,7 @@ npm run preview
 # open http://127.0.0.1:4173
 ```
 
-To reproduce the README screenshot:
+To capture the standalone development harness (this does not replace the live Codex evidence above):
 
 ```bash
 npm run capture
@@ -161,18 +160,19 @@ npm run capture
 | Deterministic manifest hash | Automated projection test |
 | Bundled STDIO MCP process | Real child-process MCP client test |
 | MCP UI resource and exact snapshot rendering | MCP integration test |
+| Actual inline rendering in Codex desktop | Recorded live task and inspected screenshot |
 | Desktop and mobile-width rendering | Real Chromium visual test |
 | Unsupported schema fail-closed state | Real Chromium visual test |
 | Codex marketplace install | Clean temporary `CODEX_HOME` install test |
 | Plugin manifest | Official local plugin validator |
 | Production dependency audit | `npm install` reported zero known vulnerabilities |
 
-Local verification on 2026-07-14: **11/11 automated tests passed**, plugin validation passed, the plugin installed and listed successfully in a clean temporary Codex home, and the visual screenshot was inspected after real Chromium rendering. See [the verification record](./docs/verification/LOCAL_TEST.md).
+Local verification on 2026-07-14: **11/11 automated tests passed**, plugin validation passed, marketplace installation succeeded, and an actual Codex desktop task completed the six-tool planning flow and rendered the immutable manifest inline. See [the verification record](./docs/verification/LOCAL_TEST.md).
 
 ## Current limitations
 
 - The user-confirmation boundary records a verbatim quote but is not cryptographic proof of human presence.
-- The local host harness verifies the Apps SDK-compatible widget contract; this screenshot is not a production Codex UI capture.
+- The live screenshot proves this tested flow on the installed desktop build; it is not a claim that every Codex host or future build renders identically.
 - Research acquisition adapters are not bundled yet. Evidence can be recorded after Codex obtains it through available browser, web, or connector tools.
 - Change impact is explicit through affected IDs, but automatic code-to-requirement drift detection is not implemented.
 - The manifest is intentionally read-only. Decisions are changed through conversation, not by editing the card.
@@ -186,7 +186,7 @@ npm test             # domain, store, MCP, and Chromium tests
 npm run test:visual # responsive and fail-closed UI states
 npm run check        # release gate used before publish
 npm run preview      # local conversation host harness
-npm run capture      # regenerate the README screenshot
+npm run capture      # regenerate the standalone harness screenshot
 ```
 
 ## Architecture

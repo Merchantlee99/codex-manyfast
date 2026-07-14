@@ -48,7 +48,35 @@ The repository marketplace was added to a temporary `CODEX_HOME`, then `codex-ma
 
 The temporary home was removed after the test, so the user's existing Codex plugin configuration was not modified.
 
-## Visual evidence
+## Installed Codex desktop run
+
+The repository marketplace was then added to the actual app-bundled Codex environment and plugin build `0.1.0+codex.20260714074541` was installed and reported as enabled.
+
+Actual Codex task: `019f5f97-7297-7d00-9b86-4be65399619c`
+
+The task completed these MCP calls against the projectless workspace `/Users/isanginn/Documents/Codex/2026-07-14/codex-manyfast-live-proof`:
+
+1. `planning_get_state` — expected initial failure because no store existed;
+2. `planning_init` — revision 1;
+3. `planning_confirm_objective` — revision 2;
+4. `planning_record_observation` — observation `OBS-D7AD5DC1`, revision 3;
+5. `planning_add_question` — blocker `QUE-81AE5C65`, revision 4;
+6. `planning_get_manifest` — snapshot `manifest-r4-dede70506f36`;
+7. `planning_render_manifest` — completed with `Showing planning revision 4.`
+
+The completed task reported integrity `passed` and readiness `not_ready`. The question remained open; the agent did not invent an answer.
+
+## Actual Codex visual evidence
+
+Output:
+
+```text
+plugins/codex-manyfast/assets/manifest-preview.png
+```
+
+The image was captured from the actual Codex desktop task after `planning_render_manifest` completed. It visibly contains the user prompt, the inline Planning Manifest, and the completion summary with the same snapshot ID. It was cropped only to remove unrelated task names and desktop content.
+
+## Standalone harness evidence
 
 Command:
 
@@ -59,7 +87,7 @@ npm run capture
 Output:
 
 ```text
-plugins/codex-manyfast/assets/manifest-preview.png
+plugins/codex-manyfast/assets/manifest-harness.png
 ```
 
-The image was opened and inspected after capture. It shows the actual local host harness and the same widget renderer used by the MCP UI resource. It is not represented as a production Codex host screenshot.
+This second image is the reproducible local host harness. It uses the same widget renderer and MCP `structuredContent` contract, but it is kept separate from the actual Codex desktop evidence.

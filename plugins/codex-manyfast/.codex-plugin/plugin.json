@@ -1,6 +1,6 @@
 {
   "name": "codex-manyfast",
-  "version": "0.1.0",
+  "version": "0.1.0+codex.20260714074541",
   "description": "A local-first decision continuity plugin that keeps product planning traceable inside ordinary Codex conversations.",
   "author": {
     "name": "Sanginn Lee",
