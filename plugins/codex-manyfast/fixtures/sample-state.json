@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "0.1.0",
+  "projectId": "codex-manyfast",
+  "revision": 12,
+  "objective": {
+    "statement": "사용자의 암묵지를 질문과 근거로 드러내고, 구현 전후의 결정을 끊기지 않게 이어준다.",
+    "status": "confirmed",
+    "confirmationQuote": "이 방향으로 진행하자."
+  },
+  "observations": [
+    {
+      "id": "OBS-001",
+      "kind": "user_statement",
+      "content": "평상시처럼 대화하고 시각 요소는 매니페스트 정도면 충분하다.",
+      "sourceUrl": null,
+      "sourceTitle": null,
+      "status": "recorded",
+      "createdAt": "2026-07-14T09:00:00.000Z"
+    },
+    {
+      "id": "OBS-002",
+      "kind": "external_evidence",
+      "content": "Apps SDK widget은 structuredContent를 렌더링한다.",
+      "sourceUrl": "https://developers.openai.com/apps-sdk/build/chatgpt-ui",
+      "sourceTitle": "Build your ChatGPT UI",
+      "status": "recorded",
+      "createdAt": "2026-07-14T09:10:00.000Z"
+    },
+    {
+      "id": "OBS-003",
+      "kind": "agent_inference",
+      "content": "항상 보이는 대시보드보다 체크포인트 카드가 적합하다.",
+      "sourceUrl": null,
+      "sourceTitle": null,
+      "status": "unconfirmed",
+      "createdAt": "2026-07-14T09:15:00.000Z"
+    }
+  ],
+  "questions": [
+    {
+      "id": "QUE-004",
+      "question": "구현 중 발견된 새 기획이 어느 범위까지 작업을 중단시켜야 하는가?",
+      "status": "open",
+      "blocking": true,
+      "reason": "과도한 중단과 무시 사이의 기준이 필요하다.",
+      "answeredByDecisionId": null,
+      "createdAt": "2026-07-14T09:20:00.000Z"
+    },
+    {
+      "id": "QUE-005",
+      "question": "팀 단위 원격 동기화를 첫 버전에 포함할 것인가?",
+      "status": "open",
+      "blocking": false,
+      "reason": null,
+      "answeredByDecisionId": null,
+      "createdAt": "2026-07-14T09:22:00.000Z"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-001",
+      "question": "핵심 UX는 무엇인가?",
+      "proposal": "일반 Codex 대화를 유지하고 중요한 상태 변화에만 읽기 전용 Manifest를 보여준다.",
+      "alternatives": ["별도 기획 에디터", "항상 열린 대시보드"],
+      "supportedBy": ["OBS-001", "OBS-002"],
+      "status": "accepted",
+      "blocking": true,
+      "confirmationQuote": "매니페스트 정도면 충분하다.",
+      "reopenWhen": ["직접 편집 요구가 반복될 때"],
+      "createdAt": "2026-07-14T09:30:00.000Z",
+      "acceptedAt": "2026-07-14T09:32:00.000Z"
+    },
+    {
+      "id": "DEC-002",
+      "question": "Manifest 내용은 누가 만드는가?",
+      "proposal": "Planning Core가 canonical state에서 결정론적으로 투영한다.",
+      "alternatives": ["Codex 자유 요약"],
+      "supportedBy": ["OBS-002"],
+      "status": "accepted",
+      "blocking": true,
+      "confirmationQuote": "시각적 플래닝이 정확히 맞아떨어져야 한다.",
+      "reopenWhen": [],
+      "createdAt": "2026-07-14T09:35:00.000Z",
+      "acceptedAt": "2026-07-14T09:38:00.000Z"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "Render tool은 임의 내용 대신 immutable snapshot ID만 입력받아야 한다.",
+      "decisionIds": ["DEC-002"],
+      "acceptanceCriteria": ["동일 snapshot ID는 동일 contentHash를 반환한다."],
+      "status": "active",
+      "createdAt": "2026-07-14T09:40:00.000Z"
+    }
+  ],
+  "changes": [
+    {
+      "id": "CHG-003",
+      "summary": "별도 캔버스 대신 채팅 내 read-only manifest로 범위를 축소했다.",
+      "reason": "사용자가 평소 대화 UX를 유지하기를 원했다.",
+      "affectedIds": ["DEC-001", "REQ-001"],
+      "blocking": false,
+      "status": "captured",
+      "createdAt": "2026-07-14T09:45:00.000Z"
+    }
+  ],
+  "createdAt": "2026-07-14T09:00:00.000Z",
+  "updatedAt": "2026-07-14T09:45:00.000Z"
+}

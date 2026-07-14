@@ -1,0 +1,19 @@
+{
+  "name": "codex-manyfast-repository",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "plugins/codex-manyfast"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @merchantlee99/codex-manyfast",
+    "test": "npm run test --workspace @merchantlee99/codex-manyfast",
+    "test:visual": "npm run test:visual --workspace @merchantlee99/codex-manyfast",
+    "check": "npm run check --workspace @merchantlee99/codex-manyfast",
+    "preview": "npm run preview --workspace @merchantlee99/codex-manyfast",
+    "capture": "npm run capture --workspace @merchantlee99/codex-manyfast"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

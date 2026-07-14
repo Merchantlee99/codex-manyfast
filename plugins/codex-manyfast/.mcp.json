@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "codex-manyfast": {
+      "type": "stdio",
+      "command": "node",
+      "cwd": ".",
+      "args": [
+        "./dist/server.mjs"
+      ]
+    }
+  }
+}

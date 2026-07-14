@@ -1,0 +1,26 @@
+{
+  "name": "@merchantlee99/codex-manyfast",
+  "version": "0.1.0",
+  "description": "Local-first planning continuity runtime and Codex plugin.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "test": "npm run build && node --test ./tests/*.test.mjs",
+    "test:visual": "node --test ./tests/visual.test.mjs",
+    "preview": "node ./src/preview-server.mjs",
+    "capture": "node ./scripts/capture.mjs",
+    "check": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.1",
+    "playwright": "1.61.1"
+  }
+}

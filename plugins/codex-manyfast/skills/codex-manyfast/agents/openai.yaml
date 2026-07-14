@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Manyfast"
+  short_description: "Trace decisions before implementation drifts"
+  default_prompt: "Help me clarify what I am building, record only confirmed decisions, and show the current planning manifest when it helps."

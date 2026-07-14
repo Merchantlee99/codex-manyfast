@@ -1,0 +1,45 @@
+{
+  "name": "codex-manyfast",
+  "version": "0.1.0",
+  "description": "A local-first decision continuity plugin that keeps product planning traceable inside ordinary Codex conversations.",
+  "author": {
+    "name": "Sanginn Lee",
+    "url": "https://github.com/Merchantlee99"
+  },
+  "homepage": "https://github.com/Merchantlee99/codex-manyfast",
+  "repository": "https://github.com/Merchantlee99/codex-manyfast",
+  "license": "MIT",
+  "keywords": [
+    "planning",
+    "product",
+    "research",
+    "decision",
+    "traceability",
+    "local-first"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Codex Manyfast",
+    "shortDescription": "Plan with evidence before implementation drifts",
+    "longDescription": "Codex Manyfast helps users surface tacit knowledge, separate evidence from inference, confirm decisions, and inspect the current planning state as a read-only manifest inside the conversation.",
+    "developerName": "Sanginn Lee",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write",
+      "Analyze"
+    ],
+    "websiteURL": "https://github.com/Merchantlee99/codex-manyfast",
+    "defaultPrompt": [
+      "내가 만들려는 것을 질문으로 구체화해줘.",
+      "현재 기획의 미결정 항목과 근거를 보여줘.",
+      "구현 중 생긴 추가 기획의 영향 범위를 분석해줘."
+    ],
+    "brandColor": "#111827",
+    "screenshots": [
+      "./assets/manifest-preview.png"
+    ]
+  }
+}
